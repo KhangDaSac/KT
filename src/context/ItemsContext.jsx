@@ -62,8 +62,15 @@ export const ItemsProvider = ({ children }) => {
     return items.find(item => item.id === parseInt(id));
   };
 
+  const value = {
+    items,
+    setItems,
+    formatPrice,
+    findItem
+  };
+
   return (
-    <ItemsContext.Provider value={{ items, setItems, formatPrice, findItem }}>
+    <ItemsContext.Provider value={value}>
       {children}
     </ItemsContext.Provider>
   );

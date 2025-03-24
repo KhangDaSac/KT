@@ -11,7 +11,7 @@ const NotFound = () => {
                     <Col md={8}>
                         <h1 className="display-3 fw-bold mb-4">404</h1>
                         <p className="lead mb-4">
-                            Trang không tồn tại
+                            Page not found
                         </p>
                         <Button
                             as={Link}
@@ -20,7 +20,7 @@ const NotFound = () => {
                             size="lg"
                             className="me-3"
                         >
-                            Quay lại trang chủ
+                            Back to home
                         </Button>
                     </Col>
                 </Row>

@@ -23,6 +23,13 @@
     border-color: #ff6b6b;
 }
 
+.btn:focus,
+.btn:focus-visible {
+    outline: 4px auto #fac4c4 !important;
+    background-color: #ff6b6b !important;
+
+}
+
 .navbar-brand {
     font-weight: bold;
     color: #ff6b6b !important;

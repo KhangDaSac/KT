@@ -51,13 +51,19 @@ export const CartProvider = ({ children }) => {
     return orders.reduce((total, item) => total + parseInt(item.quantity), 0);
   };
 
+  const buy = () => {
+    alert('Buy successful!');
+    setOrders([]);
+  };
+
   const value = {
     orders,
     addToCart,
     removeFromCart,
     updateQuantity,
     getTotalPrice,
-    getTotalQuantity
+    getTotalQuantity,
+    buy
   };
 
   return (

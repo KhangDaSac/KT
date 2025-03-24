@@ -1,12 +1,12 @@
 import React from 'react';
 import { Button, Modal, ListGroup, Badge } from 'react-bootstrap';
 import { useCart } from '../context/CartContext';
-import { useItems,  } from '../context/ItemsContext';
+import { useItems, } from '../context/ItemsContext';
 
 
 const Cart = ({ show, onHide }) => {
     const { orders, removeFromCart, updateQuantity, getTotalPrice, getTotalQuantity } = useCart();
-    const { formatPrice } = useItems();
+    const { formatPrice, buy } = useItems();
 
     return (
         <>
@@ -66,7 +66,7 @@ const Cart = ({ show, onHide }) => {
                 {getTotalQuantity() > 0 && (
                     <Modal.Footer className="justify-content-between">
                         <h5>Total: {formatPrice(getTotalPrice())}</h5>
-                        <Button variant="primary">Buy</Button>
+                        <Button variant="primary" onClick={buy}>Buy</Button>
                     </Modal.Footer>
                 )}
             </Modal>
