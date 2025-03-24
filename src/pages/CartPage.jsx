@@ -21,6 +21,7 @@ const CartPage = () => {
                                     src={item.image}
                                     alt={item.name}
                                     style={{ width: '200px', height: '200px', objectFit: 'cover', marginRight: '15px' }}
+                                    className="rounded my-2"
                                 />
                                 <div>
                                     <h6 className="mb-0">{item.name}</h6>
@@ -49,7 +50,7 @@ const CartPage = () => {
                                     className="ms-3"
                                     onClick={() => removeFromCart(item.id)}
                                 >
-                                    ×
+                                    Remove
                                 </Button>
                             </div>
                         </ListGroup.Item>

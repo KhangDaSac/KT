@@ -6,10 +6,10 @@ const Footer = () => {
       <Container>
         <Row>
           <Col md={6} className="text-center text-md-start mb-3 mb-md-0">
-            <h5 className="mb-3">Thông tin sinh viên</h5>
-            <p className="mb-1">Họ và tên: </p>
-            <p className="mb-1">Mã sinh viên: </p>
-            <p className="mb-1">Lớp: </p>
+            <h5 className="mb-3">ABC Brand</h5>
+            <p className="mb-1">123 Main St, Anytown, USA</p>
+            <p className="mb-1">info@abcbrand.com</p>
+            <p className="mb-1">123-456-7890</p>
           </Col>
         </Row>
       </Container>

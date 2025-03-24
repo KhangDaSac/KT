@@ -33,7 +33,7 @@ const Detail = () => {
                         variant="primary"
                         onClick={() => addToCart(item)}
                     >
-                        Thêm
+                        Add
                     </Button>
                 </div>
             </Card.Body>

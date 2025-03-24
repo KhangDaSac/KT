@@ -37,12 +37,16 @@ const Header = () => {
               className="px-4 py-2 mx-2"
             >
               Cart
-              <Badge
-                bg="danger"
-                className="ms-2"
-              >
-                {getTotalQuantity()}
-              </Badge>
+              {
+                getTotalQuantity() > 0 && (
+                  <Badge
+                    bg="danger"
+                    className="ms-2"
+                  >
+                    {getTotalQuantity()}
+                  </Badge>
+                )
+              }
             </Button>
 
           </Navbar.Collapse>

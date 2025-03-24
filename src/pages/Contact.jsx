@@ -11,7 +11,7 @@ const Contact = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        alert('Cảm ơn bạn đã liên hệ với chúng tôi! Chúng tôi sẽ phản hồi sớm nhất có thể.');
+        alert('Thank you for contacting us! We will respond as soon as possible.');
         setFormData({
             name: '',
             email: '',
@@ -31,19 +31,19 @@ const Contact = () => {
     return (
         <Container className="py-5">
             <div className="contact-form p-4 bg-light rounded shadow-sm mx-5">
-                <h3 className="mb-4">Liên hệ với chúng tôi</h3>
+                <h3 className="mb-4">Contact us</h3>
                 <Form onSubmit={handleSubmit}>
                     <Row>
                         <Col md={6}>
                             <Form.Group className="mb-3">
-                                <Form.Label>Họ và tên</Form.Label>
+                                <Form.Label>Name</Form.Label>
                                 <Form.Control
                                     type="text"
                                     name="name"
                                     value={formData.name}
                                     onChange={handleChange}
                                     required
-                                    placeholder="Nhập họ và tên của bạn"
+                                    placeholder="Enter your name"
                                 />
                             </Form.Group>
                         </Col>
@@ -56,26 +56,26 @@ const Contact = () => {
                                     value={formData.email}
                                     onChange={handleChange}
                                     required
-                                    placeholder="Nhập địa chỉ email"
+                                    placeholder="Enter your email"
                                 />
                             </Form.Group>
                         </Col>
                     </Row>
 
                     <Form.Group className="mb-3">
-                        <Form.Label>Tiêu đề</Form.Label>
+                        <Form.Label>Subject</Form.Label>
                         <Form.Control
                             type="text"
                             name="subject"
                             value={formData.subject}
                             onChange={handleChange}
                             required
-                            placeholder="Nhập tiêu đề"
+                            placeholder="Enter your subject"
                         />
                     </Form.Group>
 
                     <Form.Group className="mb-4">
-                        <Form.Label>Nội dung</Form.Label>
+                        <Form.Label>Message</Form.Label>
                         <Form.Control
                             as="textarea"
                             rows={5}
@@ -83,7 +83,7 @@ const Contact = () => {
                             value={formData.message}
                             onChange={handleChange}
                             required
-                            placeholder="Nhập nội dung tin nhắn"
+                            placeholder="Enter your message"
                         />
                     </Form.Group>
 
@@ -93,7 +93,7 @@ const Contact = () => {
                         size="lg"
                         className="w-100"
                     >
-                        Gửi tin nhắn
+                        Send
                     </Button>
                 </Form>
             </div>

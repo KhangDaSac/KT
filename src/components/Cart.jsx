@@ -1,7 +1,8 @@
 import React from 'react';
 import { Button, Modal, ListGroup, Badge } from 'react-bootstrap';
 import { useCart } from '../context/CartContext';
-import { useItems } from '../context/ItemsContext';
+import { useItems,  } from '../context/ItemsContext';
+
 
 const Cart = ({ show, onHide }) => {
     const { orders, removeFromCart, updateQuantity, getTotalPrice, getTotalQuantity } = useCart();
@@ -24,7 +25,8 @@ const Cart = ({ show, onHide }) => {
                                         <img
                                             src={item.image}
                                             alt={item.name}
-                                            style={{ width: '50px', height: '50px', objectFit: 'cover', marginRight: '15px' }}
+                                            style={{ width: '100px', height: '100px', objectFit: 'cover', marginRight: '15px' }}
+                                            className="rounded my-1"
                                         />
                                         <div>
                                             <h6 className="mb-0">{item.name}</h6>
@@ -53,7 +55,7 @@ const Cart = ({ show, onHide }) => {
                                             className="ms-3"
                                             onClick={() => removeFromCart(item.id)}
                                         >
-                                            ×
+                                            Remove
                                         </Button>
                                     </div>
                                 </ListGroup.Item>
@@ -63,7 +65,7 @@ const Cart = ({ show, onHide }) => {
                 </Modal.Body>
                 {getTotalQuantity() > 0 && (
                     <Modal.Footer className="justify-content-between">
-                        <h5>Tổng tiền: {formatPrice(getTotalPrice())}</h5>
+                        <h5>Total: {formatPrice(getTotalPrice())}</h5>
                         <Button variant="primary">Buy</Button>
                     </Modal.Footer>
                 )}

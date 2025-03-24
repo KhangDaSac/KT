@@ -9,45 +9,45 @@ export const ItemsProvider = ({ children }) => {
   const [items, setItems] = useState([
     {
       "id": 1,
-      "name": "Phở Bò",
-      "description": "Phở bò truyền thống với thịt bò tươi ngon",
-      "price": 89000,
-      "image": "/images/pho-bo.png"
+      "name": "Item 1",
+      "description": "This is item 1",
+      "price": 100000,
+      "image": "https://placehold.co/400"
     },
     {
       "id": 2,
-      "name": "Gỏi Cuốn",
-      "description": "Gỏi cuốn với tôm, thịt heo, rau sống, bún",
-      "price": 65000,
-      "image": "/images/goi-cuon.png"
+      "name": "Item 2",
+      "description": "This is item 2",
+      "price": 100000,
+      "image": "https://placehold.co/400"
     },
     {
       "id": 3,
-      "name": "Cơm Sườn",
-      "description": "Cơm với sườn thơm lừng",
-      "price": 75000,
-      "image": "/images/com-suon.png"
+      "name": "Item 3",
+      "description": "This is item 3",
+      "price": 100000,
+      "image": "https://placehold.co/400"
     },
     {
       "id": 4,
-      "name": "Chả Giò",
-      "description": "Chả giò giòn rụm",
-      "price": 55000,
-      "image": "/images/cha-gio.png"
+      "name": "Item 4",
+      "description": "This is item 4",
+      "price": 100000,
+      "image": "https://placehold.co/400"
     },
     {
       "id": 5,
-      "name": "Bún Bò",
-      "description": "Bún bò Huế thơm nồng",
-      "price": 85000,
-      "image": "/images/bun-bo.png"
+      "name": "Item 5",
+      "description": "This is item 5",
+      "price": 100000,
+      "image": "https://placehold.co/400"
     },
     {
       "id": 6,
-      "name": "Cá Kho",
-      "description": "Cá kho đậm đà",
-      "price": 95000,
-      "image": "/images/ca-kho.png"
+      "name": "Item 6",
+      "description": "This is item 6",
+      "price": 100000,
+      "image": "https://placehold.co/400"
     }
   ]);
 

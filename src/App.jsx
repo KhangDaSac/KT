@@ -17,10 +17,11 @@ function App() {
   return (
     <Router>
       <CartProvider>
-        <div className="d-flex flex-column min-vh-100">
-          <Header />
-          <main className="flex-grow-1">
-            <ItemsProvider>
+        <ItemsProvider>
+          <div className="d-flex flex-column min-vh-100">
+            <Header />
+            <main className="flex-grow-1">
+
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/items" element={<ItemsPage />} />
@@ -30,10 +31,10 @@ function App() {
                 <Route path="/*" element={<NotFound />} />
               </Routes>
               <Cart />
-            </ItemsProvider>
-          </main>
-          <Footer />
-        </div>
+            </main>
+            <Footer />
+          </div>
+        </ItemsProvider>
       </CartProvider>
     </Router>
   );
