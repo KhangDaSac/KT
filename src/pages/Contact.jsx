@@ -1,12 +1,5 @@
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-    faMapMarkerAlt,
-    faPhone,
-    faEnvelope,
-    faClock
-} from '@fortawesome/free-solid-svg-icons';
 
 const Contact = () => {
     const [formData, setFormData] = useState({

@@ -1,7 +1,7 @@
 import { Modal, Form, Button } from 'react-bootstrap';
 import { useState } from 'react';
 
-const BookTable = ({ show, onHide }) => {
+const BookModal = ({ show, onHide }) => {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -12,7 +12,7 @@ const BookTable = ({ show, onHide }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert('Đặt bàn thành công! Chúng tôi sẽ liên hệ với bạn sớm.');
+    alert('Booking successful! We will contact you soon.');
     onHide();
   };
 
@@ -32,36 +32,36 @@ const BookTable = ({ show, onHide }) => {
       className="booking-modal"
     >
       <Modal.Header closeButton>
-        <Modal.Title>Đặt bàn</Modal.Title>
+        <Modal.Title>Book</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3">
-            <Form.Label>Họ và tên</Form.Label>
+            <Form.Label>Name</Form.Label>
             <Form.Control
               type="text"
               name="name"
               value={formData.name}
               onChange={handleChange}
               required
-              placeholder="Nhập họ và tên của bạn"
+              placeholder="Enter your name"
             />
           </Form.Group>
 
           <Form.Group className="mb-3">
-            <Form.Label>Số điện thoại</Form.Label>
+            <Form.Label>Phone</Form.Label>
             <Form.Control
               type="tel"
               name="phone"
               value={formData.phone}
               onChange={handleChange}
               required
-              placeholder="Nhập số điện thoại"
+              placeholder="Enter your phone"
             />
           </Form.Group>
 
           <Form.Group className="mb-3">
-            <Form.Label>Ngày</Form.Label>
+            <Form.Label>Date</Form.Label>
             <Form.Control
               type="date"
               name="date"
@@ -90,22 +90,22 @@ const BookTable = ({ show, onHide }) => {
               onChange={handleChange}
               required
             >
-              <option value="1">1 người</option>
-              <option value="2">2 người</option>
-              <option value="3">3 người</option>
-              <option value="4">4 người</option>
-              <option value="5">5 người</option>
-              <option value="6">6 người</option>
-              <option value="7+">7+ người</option>
+              <option value="1">1 person</option>
+              <option value="2">2 persons</option>
+              <option value="3">3 persons</option>
+              <option value="4">4 persons</option>
+              <option value="5">5 persons</option>
+              <option value="6">6 persons</option>
+              <option value="7+">7+ persons</option>
             </Form.Select>
           </Form.Group>
 
           <div className="text-end">
             <Button variant="secondary" onClick={onHide} className="me-2">
-              Hủy
+              Cancel
             </Button>
             <Button variant="primary" type="submit">
-              Xác nhận đặt bàn
+              Confirm booking
             </Button>
           </div>
         </Form>
@@ -114,4 +114,4 @@ const BookTable = ({ show, onHide }) => {
   );
 };
 
-export default BookTable; 
+export default BookModal; 

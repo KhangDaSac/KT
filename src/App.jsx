@@ -4,11 +4,14 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Cart from './components/Cart';
 import Home from './pages/Home';
-import Menu from './pages/Menu';
+import ItemsPage from './pages/ItemsPage';
+import Detail from './pages/Detail';
+import CartPage from './pages/CartPage';
 import Contact from './pages/Contact';
+import NotFound from './pages/NotFound';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { ItemsProvider } from './context/ItemsContext';
 import './App.css';
-import { MenuProvider } from './context/MenuContext';
 
 function App() {
   return (
@@ -17,14 +20,17 @@ function App() {
         <div className="d-flex flex-column min-vh-100">
           <Header />
           <main className="flex-grow-1">
-            <MenuProvider>
+            <ItemsProvider>
               <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/menu" element={<Menu />} />
+                <Route path="/items" element={<ItemsPage />} />
+                <Route path="/item/:id" element={<Detail />} />
+                <Route path="/cart" element={<CartPage />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/*" element={<NotFound />} />
               </Routes>
               <Cart />
-            </MenuProvider>
+            </ItemsProvider>
           </main>
           <Footer />
         </div>

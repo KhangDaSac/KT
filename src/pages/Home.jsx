@@ -1,11 +1,10 @@
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import MenuList from '../components/MenuList';
-import { useMenu } from '../context/MenuContext';
+import Items from '../components/Items';
+import { useItems } from '../context/ItemsContext';
 
 const Home = () => {
-  const { menuItems } = useMenu();
+  const { items } = useItems();
 
 
   return (
@@ -13,24 +12,24 @@ const Home = () => {
         <Container className="text-light py-5 bg-secondary">
           <Row className="justify-content-center text-center">
             <Col md={8}>
-              <h1 className="display-3 fw-bold mb-4">ABC Restaurant</h1>
+              <h1 className="display-3 fw-bold mb-4">ABC Brand</h1>
               <p className="lead mb-4">
-                Chào mừng đến với nhà hàng
+                Welcome to ABC Brand
               </p>
               <Button 
                 as={Link} 
-                to="/menu" 
+                to="/listPage" 
                 variant="primary" 
                 size="lg" 
                 className="me-3"
               >
-                Xem thực đơn
+                View items
               </Button>
             </Col>
           </Row>
         </Container>
 
-      <MenuList items={menuItems} />
+      <Items items={items} />
     </div>
   );
 };

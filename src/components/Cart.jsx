@@ -1,65 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Button, Modal, ListGroup, Badge } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { useCart } from '../context/CartContext';
+import { useItems } from '../context/ItemsContext';
 
-const Cart = () => {
-    const [show, setShow] = useState(false);
+const Cart = ({ show, onHide }) => {
     const { orders, removeFromCart, updateQuantity, getTotalPrice, getTotalQuantity } = useCart();
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
-    const formatPrice = (price) => {
-        return new Intl.NumberFormat('vi-VN', {
-            style: 'currency',
-            currency: 'VND'
-        }).format(price);
-    };
+    const { formatPrice } = useItems();
 
     return (
         <>
-            <Button
-                variant="primary"
-                onClick={handleShow}
-                style={{
-                    position: 'fixed',
-                    top: '100px',
-                    right: '20px',
-                    borderRadius: '50%',
-                    width: '60px',
-                    height: '60px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center'
-                }}
-            >
-                <div className="position-relative">
-                    <FontAwesomeIcon icon={faShoppingCart} size="lg" />
-                    {getTotalQuantity() > 0 && (
-                        <Badge
-                            bg="danger"
-                            pill
-                            style={{
-                                position: 'absolute',
-                                top: '-10px',
-                                right: '-10px'
-                            }}
-                        >
-                            {getTotalQuantity()}
-                        </Badge>
-                    )}
-                </div>
-            </Button>
-
-            <Modal show={show} onHide={handleClose} size="lg">
+            <Modal show={show} onHide={onHide} size="lg">
                 <Modal.Header closeButton>
-                    <Modal.Title>Giỏ hàng của bạn</Modal.Title>
+                    <Modal.Title>Cart</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     {getTotalQuantity() === 0 ? (
-                        <p className="text-center">Giỏ hàng trống</p>
+                        <p className="text-center">Cart is empty</p>
                     ) : (
                         <ListGroup>
                             {orders.map((item) => (
@@ -108,6 +64,7 @@ const Cart = () => {
                 {getTotalQuantity() > 0 && (
                     <Modal.Footer className="justify-content-between">
                         <h5>Tổng tiền: {formatPrice(getTotalPrice())}</h5>
+                        <Button variant="primary">Buy</Button>
                     </Modal.Footer>
                 )}
             </Modal>
