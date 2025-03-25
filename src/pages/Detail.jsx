@@ -7,15 +7,16 @@ import { Link } from 'react-router-dom';
 
 const Detail = () => {
     const { id } = useParams();
-    const { items, formatPrice } = useItems();
+    const { items, formatPrice, findItemById } = useItems();
     const { addToCart } = useCart();
-    const item = items.find(item => item.id === parseInt(id));
+
+    const item = findItemById(parseInt(id));
 
     if (!item) {
         return (
-            <Container className="py-5">
+            <Container className="py-4">
                 <div className="text-center">
-                    <h2 className="mb-4">Item not found</h2>
+                    <h2 className="mb-3">Item not found</h2>
                     <Button as={Link} to="/items" variant="primary">
                         Back to Items
                     </Button>
@@ -25,46 +26,34 @@ const Detail = () => {
     }
 
     return (
-        <Container className="py-5">
-            <Row className="g-4">
-                <Col lg={6}>
-                    <Card className="h-100 border-0 shadow-sm">
-                        <Card.Img
-                            variant="top"
-                            src={item.image}
-                            className="rounded-3"
-                            style={{ height: '500px', objectFit: 'cover' }}
-                        />
-                    </Card>
+        <Container className="py-4">
+            <Row>
+                <Col md={6} className="mb-4">
+                    <img
+                        src={item.image}
+                        alt={item.name}
+                        className="img-fluid rounded"
+                        style={{ width: '100%', maxHeight: '400px', objectFit: 'cover' }}
+                    />
                 </Col>
-                <Col lg={6}>
-                    <div className="h-100 d-flex flex-column">
-                        <h1 className="display-4 fw-bold mb-3">{item.name}</h1>
-                        <Badge bg="primary" className="mb-3 fs-6 py-2 px-3">
-                            {formatPrice(item.price)}
-                        </Badge>
-                        <p className="lead mb-4">{item.description}</p>
-                        <div className="mt-auto">
-                            <div className="d-grid gap-3">
-                                <Button
-                                    size="lg"
-                                    variant="primary"
-                                    onClick={() => addToCart(item)}
-                                    className="py-3"
-                                >
-                                    Add to Cart
-                                </Button>
-                                <Button
-                                    size="lg"
-                                    variant="outline-primary"
-                                    as={Link}
-                                    to="/items"
-                                    className="py-3"
-                                >
-                                    Back to Items
-                                </Button>
-                            </div>
-                        </div>
+                <Col md={6}>
+                    <h2 className="mb-3">{item.name}</h2>
+                    <h4 className="text-primary mb-3">{formatPrice(item.price)}</h4>
+                    <p className="mb-4">{item.description}</p>
+                    <div className="d-grid gap-2 mb-4">
+                        <Button 
+                            variant="primary" 
+                            onClick={() => addToCart(item)}
+                        >
+                            Add to Cart
+                        </Button>
+                        <Button 
+                            variant="outline-secondary" 
+                            as={Link} 
+                            to="/items"
+                        >
+                            Back to Items
+                        </Button>
                     </div>
                 </Col>
             </Row>

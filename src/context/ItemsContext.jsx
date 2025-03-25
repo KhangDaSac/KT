@@ -58,7 +58,7 @@ export const ItemsProvider = ({ children }) => {
     }).format(price);
   };
 
-  const findItem = (id) => {
+  const findItemById = (id) => {
     return items.find(item => item.id === parseInt(id));
   };
 
@@ -66,7 +66,7 @@ export const ItemsProvider = ({ children }) => {
     items,
     setItems,
     formatPrice,
-    findItem
+    findItemById
   };
 
   return (

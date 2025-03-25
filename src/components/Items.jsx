@@ -1,6 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, ButtonGroup, Button } from 'react-bootstrap';
-import { Card } from 'react-bootstrap';
+import { Container, Row, Col, Button, Card } from 'react-bootstrap';
 import { useCart } from '../context/CartContext';
 import { useItems } from '../context/ItemsContext';
 import { Link } from 'react-router-dom';
@@ -9,58 +8,62 @@ const Items = ({ items }) => {
     const { addToCart } = useCart();
     const { formatPrice } = useItems();
     return (
-        <>
-            <Container className="py-5">
-                <div className="text-center mb-5">
-                    <h1 className="display-4 fw-bold mb-3">Our Products</h1>
-                    <p className="lead text-muted">Discover our amazing collection of items</p>
-                </div>
-                <Row className="g-4">
-                    {items.map(item => (
-                        <Col key={item.id} lg={4} md={6}>
-                            <Card className="h-100 border-0 shadow-sm hover-effect">
+        <Container className="py-5">
+            <div className="text-center mb-4">
+                <h1 className="mb-2">Our Products</h1>
+                <p className="text-muted">Discover our amazing collection of items</p>
+            </div>
+            <Row className="g-4">
+                {items.map(item => (
+                    <Col key={item.id} lg={4} md={6} sm={12} className="mb-4">
+                        <Card className="h-100 shadow-sm d-flex">
+                            <div>
                                 <Card.Img
                                     variant="top"
                                     src={item.image}
-                                    style={{ height: '300px', objectFit: 'cover' }}
-                                    className="rounded-top"
+                                    className="card-img-top"
+                                    style={{ height: '250px', objectFit: 'cover' }}
                                 />
-                                <Card.Body className="d-flex flex-column p-4">
-                                    <Card.Title className="fw-bold mb-3 fs-4">{item.name}</Card.Title>
-                                    <Card.Text className="text-muted mb-3 flex-grow-1">
+                            </div>
+                            <div>
+                                <Card.Body className="d-flex flex-column">
+                                    <Card.Title className="fw-bold">{item.name}</Card.Title>
+                                    <Card.Text className="text-muted mb-3">
                                         {item.description}
                                     </Card.Text>
-                                    <div className="d-flex justify-content-between align-items-center mb-4">
-                                        <span className="fs-4 fw-bold text-primary">
-                                            {formatPrice(item.price)}
-                                        </span>
-                                    </div>
-                                    <div className="d-grid gap-2">
-                                        <Button
-                                            variant="primary"
-                                            size="lg"
-                                            onClick={() => addToCart(item)}
-                                            className="py-2"
-                                        >
-                                            Add to Cart
-                                        </Button>
-                                        <Button
-                                            variant="outline-primary"
-                                            size="lg"
-                                            as={Link}
-                                            to={`/item/${item.id}`}
-                                            className="py-2"
-                                        >
-                                            View Details
-                                        </Button>
+                                    <div className="mt-auto">
+                                        <div className="d-flex justify-content-between align-items-center mb-2">
+                                            <span className="fw-bold text-primary">
+                                                {formatPrice(item.price)}
+                                            </span>
+                                        </div>
+                                        <div className="d-flex justify-content-between align-items-center mb-2">
+                                            <Button
+                                                variant="primary"
+                                                onClick={() => addToCart(item)}
+                                                className="flex-grow-1 me-2"
+                                            >
+                                                Add to Cart
+                                            </Button>
+                                            <Button
+                                                variant="outline-secondary"
+                                                as={Link}
+                                                to={`/item/${item.id}`}
+                                                className="flex-grow-2 ms-2"
+                                            >
+                                                View Details
+                                            </Button>
+                                        </div>
                                     </div>
                                 </Card.Body>
-                            </Card>
-                        </Col>
-                    ))}
-                </Row>
-            </Container>
-        </>
+                            </div>
+
+
+                        </Card>
+                    </Col>
+                ))}
+            </Row>
+        </Container>
     );
 }
 

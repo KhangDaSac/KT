@@ -18,7 +18,7 @@ const Home = () => {
             </p>
             <Button
               as={Link}
-              to="/listPage"
+              to="/items"
               variant="primary"
               size="lg"
               className="me-3"
