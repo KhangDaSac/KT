@@ -11,7 +11,7 @@ import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ItemsProvider } from './context/ItemsContext';
-import './App.css';
+
 
 function App() {
   return (
@@ -38,5 +38,7 @@ function App() {
     </Router>
   );
 }
+
+
 
 export default App;
