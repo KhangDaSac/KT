@@ -11,39 +11,47 @@ const Items = ({ items }) => {
     return (
         <>
             <Container className="py-5">
-                <h1 className="text-center mb-5">List of items</h1>
-                <Row>
+                <div className="text-center mb-5">
+                    <h1 className="display-4 fw-bold mb-3">Our Products</h1>
+                    <p className="lead text-muted">Discover our amazing collection of items</p>
+                </div>
+                <Row className="g-4">
                     {items.map(item => (
-                        <Col key={item.id} lg={4} md={6} className="mb-4">
-                            <Card className="h-100 shadow-sm hover-effect">
+                        <Col key={item.id} lg={4} md={6}>
+                            <Card className="h-100 border-0 shadow-sm hover-effect">
                                 <Card.Img
                                     variant="top"
                                     src={item.image}
-                                    style={{ height: '400px', objectFit: 'cover' }}
+                                    style={{ height: '300px', objectFit: 'cover' }}
+                                    className="rounded-top"
                                 />
-                                <Card.Body className="d-flex flex-column">
-                                    <Card.Title className="fw-bold mb-3">{item.name}</Card.Title>
-                                    <Card.Text className="text-muted mb-3">
+                                <Card.Body className="d-flex flex-column p-4">
+                                    <Card.Title className="fw-bold mb-3 fs-4">{item.name}</Card.Title>
+                                    <Card.Text className="text-muted mb-3 flex-grow-1">
                                         {item.description}
                                     </Card.Text>
-                                    <Card.Text className="text-muted mb-3">
-                                        <span className="fs-5 fw-bold text-primary">
+                                    <div className="d-flex justify-content-between align-items-center mb-4">
+                                        <span className="fs-4 fw-bold text-primary">
                                             {formatPrice(item.price)}
                                         </span>
-                                    </Card.Text>
-                                    <div className="mt-auto d-flex justify-content-between align-items-center">
+                                    </div>
+                                    <div className="d-grid gap-2">
                                         <Button
                                             variant="primary"
+                                            size="lg"
                                             onClick={() => addToCart(item)}
+                                            className="py-2"
                                         >
-                                            Add
+                                            Add to Cart
                                         </Button>
                                         <Button
-                                            variant="outline-primary outline"
+                                            variant="outline-primary"
+                                            size="lg"
                                             as={Link}
                                             to={`/item/${item.id}`}
+                                            className="py-2"
                                         >
-                                            Detail
+                                            View Details
                                         </Button>
                                     </div>
                                 </Card.Body>
