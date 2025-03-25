@@ -54,8 +54,9 @@ const Items = ({ items }) => {
                                         Add to Cart
                                     </Button>
                                     <Button
+                                        as={Link}
+                                        to={`/item/${item.id}`}
                                         variant="outline-dark"
-                                        onClick={() => addToCart(item)}
                                         className="mt-3 w-100 ms-2 flex-2"
                                     >
                                         Detail

@@ -11,20 +11,6 @@ const Detail = () => {
     const { addToCart } = useCart();
 
     const item = findItemById(parseInt(id));
-
-    if (!item) {
-        return (
-            <Container className="py-4">
-                <div className="text-center">
-                    <h2 className="mb-3">Item not found</h2>
-                    <Button as={Link} to="/items" variant="primary">
-                        Back to Items
-                    </Button>
-                </div>
-            </Container>
-        );
-    }
-
     return (
         <Container className="py-4">
             <Row>
@@ -38,17 +24,17 @@ const Detail = () => {
                 </Col>
                 <Col md={6}>
                     <h2 className="mb-3">{item.name}</h2>
-                    <h4 className="text-primary mb-3">{formatPrice(item.price)}</h4>
+                    <h4 className="text-dark mb-3">{formatPrice(item.price)}</h4>
                     <p className="mb-4">{item.description}</p>
                     <div className="d-grid gap-2 mb-4">
                         <Button 
-                            variant="primary" 
+                            variant="dark" 
                             onClick={() => addToCart(item)}
                         >
                             Add to Cart
                         </Button>
                         <Button 
-                            variant="outline-secondary" 
+                            variant="outline-dark" 
                             as={Link} 
                             to="/items"
                         >
