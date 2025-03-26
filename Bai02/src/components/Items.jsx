@@ -4,14 +4,10 @@ import { useCart } from '../context/CartContext';
 import { useItems } from '../context/ItemsContext';
 import { Link } from 'react-router-dom';
 
+
 const Items = ({ items }) => {
     const { addToCart } = useCart();
     const { formatPrice } = useItems();
-    const [category, setCategory] = useState('all');
-
-    const filteredItems = category === 'all'
-        ? items
-        : items.filter(item => item.category === category.toUpperCase());
 
     return (
         <Container className="py-5">
@@ -20,7 +16,7 @@ const Items = ({ items }) => {
                 <p className="text-muted">Discover our amazing collection of items</p>
             </div>
             <Row className="g-4">
-                {filteredItems.map(item => (
+                {items.map(item => (
                     <Col key={item.id} lg={6} md={12} className="mb-4">
                         <Card className="h-100 border-0 shadow-sm d-flex flex-row">
                             <div className="d-flex flex-column justify-content-center align-items-center">
@@ -42,9 +38,6 @@ const Items = ({ items }) => {
                                 <Card.Text className="text-muted mb-3 small text-start">
                                     {item.description}
                                 </Card.Text>
-                                <div className="d-flex justify-content-center align-items-center">
-
-                                </div>
                                 <div className="d-flex justify-content-center align-items-center">
                                     <Button
                                         variant="dark"

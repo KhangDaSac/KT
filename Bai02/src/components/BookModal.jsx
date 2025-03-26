@@ -12,6 +12,7 @@ const BookModal = ({ show, onHide }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    localStorage.setItem("formData", JSON.stringify(formData))
     alert('Booking successful! We will contact you soon.');
     onHide();
   };
@@ -104,7 +105,7 @@ const BookModal = ({ show, onHide }) => {
             <Button variant="secondary" onClick={onHide} className="me-2">
               Cancel
             </Button>
-            <Button variant="primary" type="submit">
+            <Button variant="dark" type="submit">
               Confirm booking
             </Button>
           </div>

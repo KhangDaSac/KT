@@ -4,7 +4,7 @@ import { useCart } from '../context/CartContext';
 import { useItems } from '../context/ItemsContext';
 
 const CartPage = () => {
-    const { orders, removeFromCart, getTotalPrice, getTotalQuantity, updateQuantity } = useCart();
+    const { orders, removeFromCart, getTotalPrice, getTotalQuantity, updateQuantity, buy } = useCart();
     const { formatPrice } = useItems();
 
     return (
@@ -30,7 +30,7 @@ const CartPage = () => {
                             </div>
                             <div className="d-flex align-items-center">
                                 <Button
-                                    variant="outline-secondary"
+                                    variant="outline-danger"
                                     size="sm"
                                     onClick={() => updateQuantity(item.id, Math.max(1, item.quantity - 1))}
                                 >
@@ -38,7 +38,7 @@ const CartPage = () => {
                                 </Button>
                                 <span className="mx-3">{item.quantity}</span>
                                 <Button
-                                    variant="outline-secondary"
+                                    variant="outline-primary"
                                     size="sm"
                                     onClick={() => updateQuantity(item.id, item.quantity + 1)}
                                 >
@@ -60,7 +60,7 @@ const CartPage = () => {
             {getTotalQuantity() > 0 && (
                 <div className="d-flex justify-content-between align-items-center my-5">
                     <h5>Total: {formatPrice(getTotalPrice())}</h5>
-                    <Button variant="primary">Buy</Button>
+                    <Button variant="dark" onClick={buy}>Buy</Button>
                 </div>
             )}
         </Container>

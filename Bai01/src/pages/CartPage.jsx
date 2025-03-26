@@ -4,9 +4,9 @@ import { useCart } from '../context/CartContext';
 import { useItems } from '../context/ItemsContext';
 
 const CartPage = () => {
-    const { orders, removeFromCart, getTotalPrice, getTotalQuantity, updateQuantity } = useCart();
+    const { orders, removeFromCart, getTotalPrice, getTotalQuantity, updateQuantity, buy } = useCart();
     const { formatPrice } = useItems();
-
+    
     return (
         <Container className="py-5">
             <h1 className="text-center mb-5">Cart</h1>
@@ -31,7 +31,7 @@ const CartPage = () => {
                             <div className="d-flex align-items-center">
                                 <Button
                                     variant="outline-secondary"
-                                    size="sm"
+                                    size="sm"   
                                     onClick={() => updateQuantity(item.id, Math.max(1, item.quantity - 1))}
                                 >
                                     -
@@ -60,7 +60,7 @@ const CartPage = () => {
             {getTotalQuantity() > 0 && (
                 <div className="d-flex justify-content-between align-items-center my-5">
                     <h5>Total: {formatPrice(getTotalPrice())}</h5>
-                    <Button variant="primary">Buy</Button>
+                    <Button variant="primary" onClick={buy}>Buy</Button>
                 </div>
             )}
         </Container>

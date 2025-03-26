@@ -57,19 +57,20 @@ const cartReducer = (state, action) => {
     }
 };
 
+const getInitialState = () => {
+    const storedOrders = localStorage.getItem('orders');
+    const parsedOrders = storedOrders ? JSON.parse(storedOrders) : [];
+    return {
+        orders: Array.isArray(parsedOrders) ? parsedOrders : []
+    };
+};
+
 export const useCart = () => {
     return useContext(CartContext);
 };
 
 export const CartProvider = ({ children }) => {
-    const [state, dispatch] = useReducer(cartReducer, { orders: [] });
-
-    useEffect(() => {
-        const storedOrders = localStorage.getItem('orders');
-        if (storedOrders) {
-            dispatch({ type: ACTIONS.LOAD_CART, payload: JSON.parse(storedOrders) });
-        }
-    }, []);
+    const [state, dispatch] = useReducer(cartReducer, getInitialState());
 
     useEffect(() => {
         localStorage.setItem('orders', JSON.stringify(state.orders));
@@ -88,11 +89,11 @@ export const CartProvider = ({ children }) => {
     };
 
     const getTotalPrice = () => {
-        return state.orders.reduce((total, item) => total + item.price * item.quantity, 0);
+        return state.orders.reduce((total, item) => total + (item.price * item.quantity || 0), 0);
     };
 
     const getTotalQuantity = () => {
-        return state.orders.reduce((total, item) => total + item.quantity, 0);
+        return state.orders.reduce((total, item) => total + (item.quantity || 0), 0);
     };
 
     const buy = () => {
@@ -114,4 +115,4 @@ export const CartProvider = ({ children }) => {
             {children}
         </CartContext.Provider>
     );
-}; 
+};

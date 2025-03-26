@@ -6,28 +6,27 @@ const Footer = () => {
       <Container>
         <Row className="gy-3">
           <Col md={3} className="text-center text-md-start">
-            <h5 className="text-warning mb-3">About</h5>
-            <p className="mb-1">Student Name:</p>
-            <p className="mb-1">Student ID:</p>
+            <h5 className="text-warning mb-3">Title</h5>
+            <p className="mb-1">Line</p>
+            <p className="mb-1">Line</p>
           </Col>
 
           <Col md={3} className="text-center text-md-start">
-            <h5 className="text-warning mb-3">Midterm Exam</h5>
-            <p className="mb-1">Application: Interface development</p>
-            <p className="mb-1">Date: 23/3/2025</p>
+            <h5 className="text-warning mb-3">Title</h5>
+            <p className="mb-1">Line</p>
+            <p className="mb-1">Line</p>
           </Col>
 
           <Col md={3} className="text-center text-md-start">
-            <h5 className="text-warning mb-3">Class</h5>
-            <p className="mb-1">Class name:</p>
-            <p className="mb-1">CNTT-BUTT</p>
-            <p className="mb-1">Class ID: 422000456303</p>
+            <h5 className="text-warning mb-3">Title</h5>
+            <p className="mb-1">Line</p>
+            <p className="mb-1">Line</p>
           </Col>
 
           <Col md={3} className="text-center text-md-start">
-            <h5 className="text-warning mb-3">Contact</h5>
-            <p className="mb-1">Email:</p>
-            <p className="mb-1">Phone:</p>
+            <h5 className="text-warning mb-3">Title</h5>
+            <p className="mb-1">Line</p>
+            <p className="mb-1">Line</p>
           </Col>
         </Row>
       </Container>
