@@ -3,6 +3,8 @@ import Counter from './Cau01/Counter'
 import CounterReducer from './Cau02/CounterReducer'
 import DataFetcher from './Cau03/DataFetcher'
 import ReactMemoDemo from './Cau04/ReactMemoDemo'
+import UseMemoDemo from './Cau04/UseMemoDemo'
+import UseCallbackDemo from './Cau04/UseCallbackDemo'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Container, Button, Card } from 'react-bootstrap'
 import CustomHookDemo from './Cau05/CustomHookDemo'
@@ -29,6 +31,8 @@ function App() {
 
         <h2 className="mb-3">Câu 4:</h2>
         <ReactMemoDemo />
+        <UseMemoDemo />
+        <UseCallbackDemo />
 
         <hr className="my-5" />
 
