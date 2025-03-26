@@ -35,7 +35,7 @@ const Header = () => {
                 onClick={() => setShowBooking(true)}
                 className="px-3 py-2 text-uppercase fw-bold me-2"
               >
-                Book Table
+                Book
               </Button>
               <Button
                 variant="warning"

@@ -8,20 +8,23 @@ const BookModal = ({ show, onHide }) => {
     date: '',
     time: '',
     guests: '2',
+    specialRequest: '', 
+    mealPreference: '', 
+    agreeTerms: false, 
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    localStorage.setItem("formData", JSON.stringify(formData))
+    localStorage.setItem("formData", JSON.stringify(formData));
     alert('Booking successful! We will contact you soon.');
     onHide();
   };
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target;
     setFormData(data => ({
       ...data,
-      [name]: value
+      [name]: type === 'checkbox' ? checked : value
     }));
   };
 
@@ -101,6 +104,62 @@ const BookModal = ({ show, onHide }) => {
             </Form.Select>
           </Form.Group>
 
+          <Form.Group className="mb-3">
+            <Form.Label>Yêu cầu đặc biệt</Form.Label>
+            <Form.Control
+              as="textarea"
+              rows={3}
+              name="specialRequest"
+              value={formData.specialRequest}
+              onChange={handleChange}
+              placeholder="Any special requests (e.g., seating preference)?"
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3">
+            <Form.Label>Meal Preference</Form.Label>
+            <div>
+              <Form.Check
+                inline
+                label="Vegetarian"
+                type="radio"
+                name="mealPreference"
+                value="vegetarian"
+                checked={formData.mealPreference === 'vegetarian'}
+                onChange={handleChange}
+              />
+              <Form.Check
+                inline
+                label="Non-Vegetarian"
+                type="radio"
+                name="mealPreference"
+                value="non-vegetarian"
+                checked={formData.mealPreference === 'non-vegetarian'}
+                onChange={handleChange}
+              />
+              <Form.Check
+                inline
+                label="No Preference"
+                type="radio"
+                name="mealPreference"
+                value="no-preference"
+                checked={formData.mealPreference === 'no-preference'}
+                onChange={handleChange}
+              />
+            </div>
+          </Form.Group>
+
+          <Form.Group className="mb-3">
+            <Form.Check
+              type="checkbox"
+              label="I agree to the terms and conditions"
+              name="agreeTerms"
+              checked={formData.agreeTerms}
+              onChange={handleChange}
+              required
+            />
+          </Form.Group>
+
           <div className="text-end">
             <Button variant="secondary" onClick={onHide} className="me-2">
               Cancel
@@ -115,4 +174,4 @@ const BookModal = ({ show, onHide }) => {
   );
 };
 
-export default BookModal; 
+export default BookModal;

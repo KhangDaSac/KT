@@ -17,7 +17,6 @@ const Contact = () => {
         if (form.checkValidity() === false) {
             event.stopPropagation();
         } else {
-            // Handle the form submission here
             alert('Thank you for your message! We will get back to you soon.');
             setFormData({
                 name: '',
