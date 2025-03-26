@@ -13,7 +13,7 @@ const Home = () => {
         className="py-5 text-center"
         style={{
           backgroundColor: '#1a1a1a',
-          backgroundImage: 'linear-gradient(#00000080, #00000080), url("https://images.unsplash.com/photo-1486427944299-d1955d23e34d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80")',
+          backgroundImage: 'linear-gradient(#00000080, #00000080), url("")',
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         }}
